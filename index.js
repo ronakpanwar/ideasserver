@@ -25,6 +25,10 @@ app.use('/api/user' , userRoute)
 app.use('/api/post' , postRoute)
 app.use('/api/message' , messageRoute)
 
+app.get("/", (req, res) => {
+  res.send("Ideas Library Server is running 🚀");
+});
+
 app.listen( PORT , ()=>{
     connectDB(),
     console.log("Server start on port : ",PORT )
