@@ -88,7 +88,7 @@ const signIn = async(req,res)=>{
  
           const token = jwt.sign(Token , process.env.SECRET_KEY , { expiresIn:'1d'});
 
-          return res.status(200).cookie('token',token ,  {maxAge:1*24*60*60*1000 , sameSite:'None',secure: true}).json({
+          return res.status(200).cookie('token',token ,  {httpOnly: true, sameSite:'None',secure: true}).json({
             success:true,
             user,
             message:`Welcome back ${user.name}`
